@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/jquery-ui.css">
+    <link rel="stylesheet" type="text/css" href="css/animate.css">
+    <script src="https://kit.fontawesome.com/e8019bc349.js"></script>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Fredoka+One&display=swap" rel="stylesheet">
+    <title>Mylichu</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="alert alert-primary" id="alert">
+            <i class="fas fa-times close " id="closebtn"></i>
+            <span> alert primry</span>
+        </div>
+    </div>
+
+    <div class="container">
+        <h1>path repesentation</h1>
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item">breadcrumb1</li>
+                <li class="breadcrumb-item">breadcrumb2</li>
+                <li class="breadcrumb-item">breadcrumb3</li>
+            </ol>
+
+        </nav>
+    </div>
+    <div class="container mb-5">
+
+        <div class="carousel slide" data-ride="carousel" id="slider">
+            <ol class="carousel-indicators bg-danger">
+                <li id="one"></li>
+                <li id="two"></li>
+
+            </ol>
+            <div class="carousel-inner">
+                <div class="carousel-item active animated fadeIn"><img src="images/logo.png" alt="logo.png" class="w-100"></div>
+                <div class="carousel-item animated fadeIn"><img src="images/mobile.png" alt="logo.png" class="w-100"></div>
+            </div>
+            <a class="carousel-control-prev" data-slide="prev" href="#slider"><i class="fas fa-arrow-left" style="font-size: 35px; "></i></a>
+            <a class="carousel-control-next" data-slide="next" href="#slider"><i class="fas fa-arrow-right" style="font-size: 35px; "></i></a>
+        </div>
+        <div class="btn-group fixed-bottom" style="widows: 120px;">
+            <button class="btn btn-danger" id="prev">prev</button>
+            <button class="btn btn-warning" id="next">next</button>
+        </div>
+
+    </div>
+
+
+
+
+
+
+    <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+    <script src="js/jquery.js"></script>
+    <script src="js/jquery-ui.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+    <script src="js/wow.min.js"></script>
+    <script src="js/script.js"></script>
+
+
+    <script>
+        $(document).ready(function() {
+
+            $("#closebtn").click(function() {
+
+                $("#alert").addClass("animated fadeOut")
+            });
+
+
+        });
+        $(document).ready(function() {
+
+            $("#prev").click(function() {
+                $("#slider").carousel('prev');
+            });
+
+            $("#next").click(function() {
+                $("#slider").carousel('next');
+            });
+
+            $("#slider").swipe({
+                swipe: function(event, direction) {
+                    if (direction == "right") {
+                        $(this).carousel('prev');
+                    }
+                    if (direction == "left") {
+                        $(this).carousel('next');
+                    }
+                }
+            });
+
+            $("#one").click(function() {
+                $("#slider").carousel(0);
+            });
+            $("#two").click(function() {
+                $("#slider").carousel(1);
+            });
+            $("#slider").carousel({
+                interval: 1000
+            });
+
+
+
+        });
+
+    </script>
+    <script src="js/jquery.touchSwipe.js"></script>
+</body>
+
+</html>
